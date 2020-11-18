@@ -1,0 +1,27 @@
+<div [ngClass]="alert" class="alert" role="alert">
+    <strong> Podes cambiar el color de esta alerta con los botones de abajo <i class="fa fa-arrow-circle-down" aria-hidden="true"></i> </strong>
+</div>
+
+<button type="button" class="btn btn-primary" (click)="alert='alert-primary'">Primary</button>
+<button type="button" class="btn btn-success" (click)="alert='alert-success'">Success</button>
+<button type="button" class="btn btn-danger" (click)="alert='alert-danger'">Danger</button>
+<button type="button" class="btn btn-warning" (click)="alert='alert-warning'">Warning</button>
+
+<hr>
+
+<h3 [ngClass]=" { 'text-danger': propiedades.danger,'text-info': !propiedades.danger}">
+    Hola Mundo
+</h3>
+
+<button (click)="propiedades.danger = !propiedades.danger" type="button" class="btn btn-danger" [ngClass]="{'btn-danger': propiedades.danger, 'btn-info': !propiedades.danger}">
+    Cambiar
+</button>
+
+<hr>
+<br>
+<h3> ASYNC </h3>
+<button (click)="eject()" class="btn btn-primary" type="button" name="button" [disabled]="load">
+<i [ngClass]="{'fa-save':!load , 'fa-refresh fa-spin':load }" class="fa " aria-hidden="true"> </i> 
+<span *ngIf="!load"> Guardar cambios </span>
+<span *ngIf="load"> Espere por favor</span>
+</button>
